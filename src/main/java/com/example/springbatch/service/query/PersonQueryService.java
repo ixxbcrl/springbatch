@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -30,5 +31,15 @@ public class PersonQueryService {
         Thread.sleep(1000L);
 
         return CompletableFuture.completedFuture(person);
+    }
+
+    public void addAllPersons() {
+        List<Person> personList = new ArrayList<>();
+
+        for (int i=0; i<50; ++i) {
+            personList.add(new Person("William" + i, "Budapest"));
+        }
+
+        personRepository.saveAll(personList);
     }
 }

@@ -14,7 +14,7 @@ public class Person implements Serializable {
     private static final long serialVersionUID = -2343243243242432341L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @NonNull
